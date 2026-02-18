@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login(){
+export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading,setLoading] = useState(false);
-  const [error,setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function Login(){
     setError("");
     setLoading(true);
 
-    try{
+    try {
       const res = await fetch("https://edu-platform-kzxw.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,21 +25,21 @@ export default function Login(){
 
       const data = await res.json();
 
-      if(data.token){
+      if (data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
 
-        if(data.role === "academy"){
+        if (data.role === "academy") {
           navigate("/academy");
-        }else{
+        } else {
           navigate("/student");
         }
 
-      }else{
+      } else {
         setError("Invalid email or password");
       }
 
-    }catch(err){
+    } catch (err) {
       setError("Server not responding");
     }
 
@@ -61,7 +61,7 @@ export default function Login(){
             type="email"
             placeholder="you@example.com"
             value={email}
-            onChange={e=>setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             required
           />
         </div>
@@ -72,7 +72,7 @@ export default function Login(){
             type="password"
             placeholder="••••••••"
             value={password}
-            onChange={e=>setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             required
           />
         </div>
@@ -80,6 +80,9 @@ export default function Login(){
         <button disabled={loading}>
           {loading ? "Signing in..." : "Login"}
         </button>
+        <p className="register-text">
+          Don't have an account? <Link to="/register">Register Here</Link>
+        </p>
 
       </form>
     </div>

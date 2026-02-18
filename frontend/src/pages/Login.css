@@ -18,6 +18,22 @@
   animation: pop .35s ease;
 }
 
+.register-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
 @keyframes pop{
   from{transform:scale(.95);opacity:0}
   to{transform:scale(1);opacity:1}
