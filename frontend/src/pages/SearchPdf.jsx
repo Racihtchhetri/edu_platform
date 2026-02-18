@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Search.css";
 
 export default function SearchPdf() {
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   const [filters, setFilters] = useState({
     subject: "",
@@ -30,6 +38,10 @@ export default function SearchPdf() {
 
   return (
     <div className="search-page">
+
+      <button className="logout-btn" onClick={logout}>
+        Logout
+      </button>
 
       <div className="search-card">
 
