@@ -8,7 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/edu")
+// Use Atlas connection string from Render env
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Mongo connected"))
   .catch(err => console.log("Mongo error:", err));
 
@@ -17,6 +18,9 @@ app.use("/api/pdf", require("./routes/pdf"));
 app.use("/api/search", require("./routes/search"));
 app.use("/api/view", require("./routes/pdfView"));
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+// Use Render provided port
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
 });
