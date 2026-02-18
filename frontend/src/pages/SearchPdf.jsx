@@ -45,78 +45,103 @@ export default function SearchPdf() {
   };
 
   return (
-    <div className="search-page">
+    <div className="academy-layout">
 
-      {/* top bar */}
-      <div className="top-bar">
-        <button className="logout-btn" onClick={logout}>
-          Logout
+      {/* ------------ sidebar ------------ */}
+      <aside className="academy-sidebar">
+
+        <h3 className="logo">Student</h3>
+
+        <button className="side-btn active">
+          🔍 Search PDFs
         </button>
-      </div>
 
-      <div className="search-card">
+        <button
+          className="side-btn logout"
+          onClick={logout}
+        >
+          🚪 Logout
+        </button>
 
-        <h2>Find Study Material</h2>
-        <p className="sub">Search PDFs uploaded by academies</p>
+      </aside>
 
-        <div className="search-form">
+      {/* ------------ content ------------ */}
+      <main className="academy-content">
 
-          <input
-            placeholder="Subject"
-            value={filters.subject}
-            onChange={e => setFilters({ ...filters, subject: e.target.value })}
-          />
+        <div className="search-card">
 
-          <input
-            placeholder="Class"
-            value={filters.className}
-            onChange={e => setFilters({ ...filters, className: e.target.value })}
-          />
+          <h2>Find Study Material</h2>
+          <p className="sub">Search PDFs uploaded by academies</p>
 
-          <input
-            placeholder="School"
-            value={filters.schoolName}
-            onChange={e => setFilters({ ...filters, schoolName: e.target.value })}
-          />
+          <div className="search-form">
 
-          <button onClick={search} disabled={loading}>
-            {loading ? "Searching..." : "Search"}
-          </button>
+            <input
+              placeholder="Subject"
+              value={filters.subject}
+              onChange={e =>
+                setFilters({ ...filters, subject: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Class"
+              value={filters.className}
+              onChange={e =>
+                setFilters({ ...filters, className: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="School"
+              value={filters.schoolName}
+              onChange={e =>
+                setFilters({ ...filters, schoolName: e.target.value })
+              }
+            />
+
+            <button onClick={search} disabled={loading}>
+              {loading ? "Searching..." : "Search"}
+            </button>
+
+          </div>
 
         </div>
 
-      </div>
+        <div className="results-area">
 
-      <div className="results-area">
-
-        {list.length === 0 && !loading && (
-          <div className="empty">
-            No results yet. Try searching.
-          </div>
-        )}
-
-        {list.map(p => (
-          <div
-            className="pdf-card file"
-            key={p._id}
-            onClick={() => setPreview(p)}
-          >
-
-            <div className="file-icon">📄</div>
-
-            <div className="file-info">
-              <h4>{p.subject}</h4>
-              <p>{p.className} · {p.schoolName}</p>
+          {list.length === 0 && !loading && (
+            <div className="empty">
+              No results yet. Try searching.
             </div>
+          )}
 
-          </div>
-        ))}
+          {list.map(p => (
+            <div
+              className="pdf-card file"
+              key={p._id}
+              onClick={() => setPreview(p)}
+            >
 
-      </div>
+              <div className="file-icon">📄</div>
+
+              <div className="file-info">
+                <h4>{p.subject}</h4>
+                <p>{p.className} · {p.schoolName}</p>
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+
+      </main>
 
       {preview && (
         <div className="preview-backdrop" onClick={() => setPreview(null)}>
-          <div className="preview-box" onClick={e => e.stopPropagation()}>
+          <div
+            className="preview-box"
+            onClick={e => e.stopPropagation()}
+          >
 
             <div className="preview-header">
               <span>{preview.subject}</span>
