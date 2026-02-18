@@ -4,6 +4,12 @@
   background:linear-gradient(135deg,#4f46e5,#06b6d4);
 }
 
+.top-bar{
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+}
+
 /* top card */
 
 .search-card{

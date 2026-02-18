@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Search.css";
 
@@ -6,10 +6,12 @@ export default function SearchPdf() {
 
   const navigate = useNavigate();
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+  // ---------------- auth guard ----------------
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   const [filters, setFilters] = useState({
     subject: "",
@@ -20,6 +22,12 @@ export default function SearchPdf() {
   const [preview, setPreview] = useState(null);
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // ---------------- logout ----------------
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   const search = async () => {
 
@@ -39,9 +47,12 @@ export default function SearchPdf() {
   return (
     <div className="search-page">
 
-      <button className="logout-btn" onClick={logout}>
-        Logout
-      </button>
+      {/* top bar */}
+      <div className="top-bar">
+        <button className="logout-btn" onClick={logout}>
+          Logout
+        </button>
+      </div>
 
       <div className="search-card">
 
@@ -76,7 +87,6 @@ export default function SearchPdf() {
 
       </div>
 
-
       <div className="results-area">
 
         {list.length === 0 && !loading && (
@@ -103,6 +113,7 @@ export default function SearchPdf() {
         ))}
 
       </div>
+
       {preview && (
         <div className="preview-backdrop" onClick={() => setPreview(null)}>
           <div className="preview-box" onClick={e => e.stopPropagation()}>

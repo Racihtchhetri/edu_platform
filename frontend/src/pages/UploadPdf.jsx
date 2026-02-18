@@ -6,10 +6,12 @@ export default function UploadPdf() {
 
   const navigate = useNavigate();
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+  // ---------------- auth guard ----------------
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   const [active, setActive] = useState("list");
 
@@ -18,6 +20,12 @@ export default function UploadPdf() {
   const [error, setError] = useState("");
 
   const [list, setList] = useState([]);
+
+  // ---------------- logout ----------------
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   // ------------------ load uploaded PDFs ------------------
   const loadPdfs = async () => {
@@ -100,6 +108,7 @@ export default function UploadPdf() {
           ⬆ Upload PDF
         </button>
 
+        {/* logout button */}
         <button
           className="side-btn logout"
           onClick={logout}
