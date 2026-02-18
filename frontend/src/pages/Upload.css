@@ -1,0 +1,167 @@
+.academy-layout{
+  min-height:100vh;
+  display:flex;
+  background:#0f172a;
+}
+
+/* sidebar */
+
+.academy-sidebar{
+  width:220px;
+  background:#020617;
+  padding:18px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.logo{
+  color:white;
+  margin:0 0 12px;
+  font-size:20px;
+  text-align:center;
+}
+
+.side-btn{
+  border:none;
+  background:#020617;
+  color:#cbd5f5;
+  text-align:left;
+  padding:10px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:.2s;
+}
+
+.side-btn:hover{
+  background:#1e293b;
+}
+
+.side-btn.active{
+  background:#2563eb;
+  color:white;
+}
+
+/* content */
+
+.academy-content{
+  flex:1;
+  padding:28px;
+  background:#f1f5f9;
+}
+
+/* cards */
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-top:0;
+  color:#0f172a;
+}
+
+.sub{
+  margin-top:-6px;
+  margin-bottom:16px;
+  font-size:14px;
+  color:#64748b;
+}
+
+/* table */
+
+.pdf-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px;
+}
+
+.pdf-table th,
+.pdf-table td{
+  padding:10px 12px;
+  border-bottom:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+.pdf-table th{
+  text-align:left;
+  background:#f8fafc;
+  color:#334155;
+}
+
+/* form */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.field label{
+  font-size:13px;
+  color:#334155;
+}
+
+.field input{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+.field input:focus{
+  outline:none;
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.field.full{
+  grid-column:1 / -1;
+}
+
+.btn{
+  grid-column:1 / -1;
+  margin-top:6px;
+  border:none;
+  border-radius:10px;
+  padding:12px;
+  background:#2563eb;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+/* alerts */
+
+.success{
+  background:#dcfce7;
+  color:#166534;
+  padding:10px 12px;
+  border-radius:8px;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+  padding:10px 12px;
+  border-radius:8px;
+  font-size:14px;
+  margin-bottom:12px;
+}

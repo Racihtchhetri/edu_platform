@@ -1,0 +1,131 @@
+.auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  padding:20px;
+}
+
+.auth-card{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:16px;
+  padding:28px 24px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  animation:pop .35s ease;
+}
+
+.auth-card h2{
+  margin:0;
+  color:#111827;
+}
+
+.auth-sub{
+  margin-top:6px;
+  margin-bottom:18px;
+  color:#6b7280;
+  font-size:14px;
+}
+
+.auth-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+.auth-field label{
+  font-size:13px;
+  color:#374151;
+}
+
+.auth-field input{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+  outline:none;
+  transition:.2s;
+}
+
+.auth-field input:focus{
+  border-color:#4f46e5;
+  box-shadow:0 0 0 3px rgba(79,70,229,.15);
+}
+
+/* role buttons */
+
+.role-switch{
+  display:flex;
+  gap:10px;
+}
+
+.role-switch button{
+  flex:1;
+  border:1px solid #e5e7eb;
+  background:#f9fafb;
+  padding:10px 0;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:500;
+  color:#374151;
+  transition:.2s;
+}
+
+.role-switch button.active{
+  background:#4f46e5;
+  color:white;
+  border-color:#4f46e5;
+}
+
+.auth-btn{
+  margin-top:6px;
+  width:100%;
+  border:none;
+  border-radius:10px;
+  padding:11px;
+  background:#4f46e5;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.auth-btn:hover{
+  background:#4338ca;
+}
+
+.auth-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.auth-error{
+  background:#fee2e2;
+  color:#991b1b;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+
+.auth-footer{
+  margin-top:16px;
+  text-align:center;
+  font-size:14px;
+  color:#6b7280;
+}
+
+.auth-footer span{
+  color:#4f46e5;
+  cursor:pointer;
+  font-weight:600;
+  margin-left:4px;
+}
+
+@keyframes pop{
+  from{transform:scale(.95);opacity:0}
+  to{transform:scale(1);opacity:1}
+}

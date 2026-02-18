@@ -1,0 +1,59 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+/* links */
+a {
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* headings */
+h1, h2, h3 {
+  margin: 0 0 12px;
+}
+
+/* inputs */
+input {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* buttons */
+button {
+  font-family: inherit;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* remove default focus ring (we control it) */
+input:focus,
+button:focus {
+  outline: none;
+}
