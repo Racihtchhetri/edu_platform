@@ -1,4 +1,4 @@
-const BASE = "http://localhost:5000/api";
+const BASE = "https://edu-platform-kzxw.onrender.com/api";
 
 export const login = (data) =>
     fetch(BASE + "/auth/login", {

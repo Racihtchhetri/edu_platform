@@ -14,7 +14,7 @@ export default function UploadPdf() {
   // ------------------ load uploaded PDFs ------------------
   const loadPdfs = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/pdf/my", {
+      const res = await fetch("https://edu-platform-kzxw.onrender.com/api/pdf/my", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token")
         },
@@ -44,7 +44,7 @@ export default function UploadPdf() {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/pdf/upload",
+        "https://edu-platform-kzxw.onrender.com/api/pdf/upload",
         {
           method: "POST",
           headers: {

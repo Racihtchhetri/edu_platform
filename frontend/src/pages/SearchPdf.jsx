@@ -20,7 +20,7 @@ export default function SearchPdf() {
     const q = new URLSearchParams(filters).toString();
 
     const res = await fetch(
-      "http://localhost:5000/api/search?" + q
+      "https://edu-platform-kzxw.onrender.com/api/search?" + q
     );
 
     const data = await res.json();
@@ -101,7 +101,7 @@ export default function SearchPdf() {
             </div>
 
             <iframe
-              src={`http://localhost:5000/api/view/${preview.filePath}`}
+              src={`https://edu-platform-kzxw.onrender.com/api/view/${preview.filePath}`}
               title="preview"
             />
 
