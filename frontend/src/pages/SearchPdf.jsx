@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./search.css";
+import "./Search.css";
 
 export default function SearchPdf() {
 
