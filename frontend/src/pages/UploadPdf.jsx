@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Upload.css";
 
 export default function UploadPdf() {
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   const [active, setActive] = useState("list");
 
@@ -90,6 +98,13 @@ export default function UploadPdf() {
           onClick={() => setActive("upload")}
         >
           ⬆ Upload PDF
+        </button>
+
+        <button
+          className="side-btn logout"
+          onClick={logout}
+        >
+          🚪 Logout
         </button>
 
       </aside>
